@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <meta charset="utf-8" />
+    <title>Budget App</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Budgtr All</h1>
+      <nav>
+        <h5><a href="/budgets/new">Add New Entry</a></h5>
+      </nav>
+      <table>
+        <tr style="font-style: italic;">
+          <td>Date</td>
+          <td>Name</td>
+          <td>From</td>
+          <td>Amount</td>
+          <td>Tags</td>
+        </tr>
+        <% for (let entry of budget) { %>
+          <tr>
+            <td><%= entry.date %></td>
+            <td><%= entry.name %></td>
+            <td><%= entry.from %></td>
+            <td><%= entry.amount %></td>
+            <td><%= entry.tags %></td>
+          </tr>
+        <% } %>
+        
+      </table>
+      
+    </div>
+  </body>
+</html>
+
+
