@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head.ejs') %>
+    <meta charset="utf-8" />
+    <title>Budgtr Entry Page</title>
+  </head>
+  <body>
+    <h1>Budgtr Entry Page</h1>
+    <table class="container">
+      <tr>
+        <td class="two columns">Date</td>
+        <td class="ten columns"><%= entry.date %></td>
+      </tr>
+      <tr>
+        <td class="two columns">Name</td>
+        <td class="ten columns"><%= entry.name %></td>
+      </tr>
+      <tr>
+        <td class="two columns">From</td>
+        <td class="ten columns"><%= entry.from %></td>
+      </tr>
+      <tr>
+        <td class="two columns">Amount</td>
+        <td class="ten columns"><%= entry.amount %></td>
+      </tr>
+      <tr>
+        <td class="two columns">Tags</td>
+        <td class="ten columns"><%= entry.tags %></td>
+      </tr>
+    </table>
+    <a href="/budget">Back to index</a>
+
+    <% if (entry.readyToEat) { %>
+      "Ready to eat!"
+    <% } else { %>
+      <!-- "not ready to eat" -->
+    <% } %>
+  </body>
+</html>

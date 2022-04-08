@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Entry</title>
+    <%- include('./partials/head.ejs') %>
+
+</head>
+<body>
+    <h1>New Entry Page</h1>
+    <form class="container" action="/budget" method="post">
+        <!-- //name attribute is whatever is rec.body.  -->
+        Name: <input type="text" name="name"/> <br/>
+        Date: <input type="text" name="date"/> <br/>
+        From: <input type="text" name="from" /><br/>
+        Amount: <input type="text" name="amount" /><br/>
+        Tags: <input type="text" name="tags" /><br/>
+        <input type="submit" value="Create Entry">
+    </form>
+</body>
+</html>

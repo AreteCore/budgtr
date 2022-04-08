@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+    <%- include('./partials/head.ejs') %>
     <meta charset="utf-8" />
     <title>Budget App</title>
   </head>
   <body>
-    <div class="container">
+    <div >
       <h1>Budgtr All</h1>
       <nav>
-        <h5><a href="/budgets/new">Add New Entry</a></h5>
+        <h5><a href="/budget/new">Add New Entry</a></h5>
       </nav>
-      <table>
-        <tr style="font-style: italic;">
-          <td>Date</td>
-          <td>Name</td>
-          <td>From</td>
-          <td>Amount</td>
-          <td>Tags</td>
-        </tr>
-        <% for (let entry of budget) { %>
-          <tr>
-            <td><%= entry.date %></td>
-            <td><%= entry.name %></td>
-            <td><%= entry.from %></td>
-            <td><%= entry.amount %></td>
-            <td><%= entry.tags %></td>
+      <div class="total">Total $<%= total %>.00</div>
+      <table class="container">
+        <thead>
+          <tr style="font-style: italic;" >
+            <td>Date</td>
+            <td>Name</td>
+            <td>From</td>
+            <td>Amount</td>
+            <td>Tags</td>
           </tr>
-        <% } %>
+        </thead>
+        <tbody>
+          <% for (let entry in budget) { %>
+            <tr>
+              <td><%= budget[entry].date %></td>
+              <td><a href="http://localhost:3000/budget/<%= entry %>"><%= budget[entry].name %></a></td>
+              <td><%= budget[entry].from %></td>
+              <td><%= budget[entry].amount %></td>
+              <td><%= budget[entry].tags %></td>
+            </tr>
+          <% } %>
+        </tbody>
         
       </table>
       
