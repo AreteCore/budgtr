@@ -6,7 +6,9 @@ const PORT = process.env.PORT || 3001
 const budget = require('./models/budget.js')
 let bankAccountTotal = 0
 
+
 //middleware
+exp.use(express.static('public'));
 exp.use(express.urlencoded({extended:false}))
 
 exp.listen(PORT, () => {
@@ -23,6 +25,11 @@ exp.get("/budget/", (req,res) => {
     res.render("index.ejs", {
         budget:budget,
         total : bankAccountTotal,
+        balanceColor: function () {
+            if (this.total <= 0) {
+                return "red"
+            } else return "green"
+        }
     })
 })
 
